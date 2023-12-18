@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>child</title>
+  <script type="text/javascript" src="./index.umd.js"></script>
+</head>
+
+<body>
+  <input type="text" id="text" placeholder="请输入...">
+  <button onclick="send()">子 send message</button>
+
+  <!-- <p>子receive接收: <span id="receive-text"></span> </p> -->
+</body>
+
+<script>
+//   iframeMessage.on('send_message', data => {
+//     document.getElementById('receive-text').innerText = data
+//   })
+
+  const send = () => { 
+    const value = document.getElementById('text').value
+    console.log("%c [ value 子 ]", "font-size:13px; background:linear-gradient(to right , #9B63FF, #462188); color:yellow;", value)
+
+    if (!value) return alert('请输入需要发送的消息_____子')
+
+    iframeMessage.dispatch('send_message', value)
+  }
+</script>
+
+</html>
